@@ -7,16 +7,12 @@ from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,Toplevel
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\acer\Desktop\Investhub\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\acer\Desktop\shoppingcarta\build\assets\frame0")
 
-def open_new_window():
-    new_window = Toplevel(window)
-    new_window.geometry("400x300")
-    new_window.title("New Page")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -24,15 +20,15 @@ def relative_to_assets(path: str) -> Path:
 
 window = Tk()
 
-window.geometry("1366x768")
-window.configure(bg = "#FFFFFF")
+window.geometry("1367x767")
+window.configure(bg = "#9DCD5A")
 
 
 canvas = Canvas(
     window,
-    bg = "#FFFFFF",
-    height = 768,
-    width = 1366,
+    bg = "#9DCD5A",
+    height = 767,
+    width = 1367,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge"
@@ -40,104 +36,28 @@ canvas = Canvas(
 
 canvas.place(x = 0, y = 0)
 canvas.create_rectangle(
-    0.0,
-    12.0,
-    1366.0,
-    780.0,
+    836.0,
+    227.0,
+    1334.0,
+    520.0,
     fill="#FFFFFF",
     outline="")
-background_image = PhotoImage(file=relative_to_assets(r"c:\Users\acer\Downloads\grpshoppingedited (1).png"))
-canvas.create_image(0, 0, anchor='nw', image=background_image)
 
-canvas.create_text(
-    740.0,
-    332.0,
-    anchor="nw",
-    text="GROUP ID",
-    fill="#000000",
-    font=("Poppins Regular", 36 * -1)
-)
+canvas.create_rectangle(
+    123.0,
+    181.0,
+    519.0,
+    554.0,
+    fill="#FFFFFF",
+    outline="")
 
-canvas.create_text(
-    740.0,
-    417.0,
-    anchor="nw",
-    text="USER ID",
-    fill="#000000",
-    font=("Poppins Regular", 36 * -1)
-)
-
-canvas.create_text(
-    740.0,
-    502.0,
-    anchor="nw",
-    text="USER NAME",
-    fill="#000000",
-    font=("Poppins Regular", 36 * -1)
-)
-
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    1122.5,
-    363.5,
-    image=entry_image_1
-)
-entry_1 = Entry(
-    bd=0,
-    bg="#D9D9D9",
-    fg="#000716",
-    highlightthickness=0,
-    font=("Poppins Regular", 18)
-)
-entry_1.place(
-    x=991.5,
-    y=339.0,
-    width=262.0,
-    height=47.0
-)
-
-entry_image_2 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
-    1122.5,
-    441.5,
-    image=entry_image_2
-)
-entry_2 = Entry(
-    bd=0,
-    bg="#D9D9D9",
-    fg="#000716",
-    highlightthickness=0,
-    font=("Poppins Regular", 18)
-)
-entry_2.place(
-    x=991.5,
-    y=417.0,
-    width=262.0,
-    height=47.0
-)
-
-entry_image_3 = PhotoImage(
-    file=relative_to_assets("entry_3.png"))
-entry_bg_3 = canvas.create_image(
-    1122.5,
-    534.5,
-    image=entry_image_3
-)
-entry_3 = Entry(
-    bd=0,
-    bg="#D9D9D9",
-    fg="#000716",
-    highlightthickness=0,
-    font=("Poppins Regular", 18)
-)
-entry_3.place(
-    x=991.5,
-    y=510.0,
-    width=262.0,
-    height=47.0
-)
+canvas.create_rectangle(
+    459.0,
+    15.0,
+    1004.0,
+    161.0,
+    fill="#FFFFFF",
+    outline="")
 
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
@@ -145,14 +65,30 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=open_new_window, 
+    command=lambda: print("button_1 clicked"),
     relief="flat"
 )
 button_1.place(
-    x=895.0,
-    y=602.0,
-    width=302.0,
+    x=800.0,
+    y=615.0,
+    width=524.0,
     height=81.0
+)
+
+button_image_2 = PhotoImage(
+    file=relative_to_assets("button_2.png"))
+button_2 = Button(
+    image=button_image_2,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_2 clicked"),
+    relief="flat"
+)
+button_2.place(
+    x=104.0,
+    y=611.0,
+    width=425.0,
+    height=75.0
 )
 window.resizable(False, False)
 window.mainloop()
